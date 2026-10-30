@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Política de privacidad de la aplicación Voz Alpha.">
+  <meta name="robots" content="index,follow">
+  <title>Política de Privacidad - Voz Alpha</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #172033;
+      background: #f4f6fb;
+      line-height: 1.65;
+    }
+    body { margin: 0; }
+    header {
+      padding: 2.5rem 1.25rem;
+      color: #fff;
+      background: linear-gradient(120deg, #111827, #263b67);
+    }
+    header div, main, footer { width: min(860px, 100% - 2rem); margin-inline: auto; }
+    h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.2; }
+    header p { margin: .6rem 0 0; color: #d7e2ff; }
+    main {
+      box-sizing: border-box;
+      margin-block: 2rem;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 12px 36px rgb(25 40 75 / 8%);
+    }
+    h2 { margin-top: 2rem; font-size: 1.25rem; line-height: 1.35; }
+    h2:first-of-type { margin-top: 1.5rem; }
+    a { color: #3159a8; overflow-wrap: anywhere; }
+    .summary {
+      padding: 1rem 1.1rem;
+      border-left: 4px solid #3974e8;
+      border-radius: .35rem;
+      background: #f0f5ff;
+    }
+    footer { padding: 0 0 2rem; color: #596579; font-size: .9rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Política de Privacidad</h1>
+      <p>Voz Alpha · Última actualización: 5 de octubre de 2026</p>
+    </div>
+  </header>
+
+  <main>
+    <p class="summary"><strong>En pocas palabras:</strong> Voz Alpha no requiere una cuenta ni usa tus grabaciones para identificarte, hacer publicidad o entrenar modelos. Algunas funciones del Mini Estudio envían el audio que elegís a Hugging Face para procesarlo. La App también integra servicios de Google que pueden recopilar datos técnicos, de uso y diagnóstico.</p>
+
+    <h2>1. Responsable y cuenta</h2>
+    <p>Voz Alpha es una aplicación de entrenamiento vocal y Mini Estudio. No requiere crear una cuenta ni entregar nombre, email u otros datos de identidad para usar sus funciones. La App no crea perfiles de usuario ni usa las grabaciones para publicidad, entrenamiento de modelos o identificación de la voz.</p>
+
+    <h2>2. Datos y procesamiento local</h2>
+    <p>Las grabaciones, el loopback y el análisis de oratoria (ritmo, tono, pausas y palabras de relleno) se procesan en el dispositivo. La transcripción de oratoria usa el modelo Vosk incluido en la App. Las preferencias, el progreso, la aceptación de documentos y los archivos de trabajo se guardan localmente.</p>
+    <p>La función Lectura entrega el texto al motor de síntesis de voz de Android configurado en el dispositivo. Si ese motor usa servicios en línea, su proveedor puede tratar el texto según sus propias prácticas.</p>
+
+    <h2>3. Audio enviado por el usuario al Mini Estudio</h2>
+    <p>Solo cuando elegís separar pistas o generar transcripción/karaoke, el audio seleccionado se envía por HTTPS al Worker de Cloudflare de Voz Alpha y este lo retransmite a Hugging Face para procesarlo. La separación usa el Space <code>vozalpha-voz-alpha-spleeter</code>, configurado como privado. La transcripción/karaoke usa <code>vozalpha-karaoke-letra</code>, que está configurado como público.</p>
+    <p>“Público” describe la visibilidad del Space como servicio en Hugging Face; no quiere decir que la App publique automáticamente tu archivo o lo muestre a otros usuarios. Sin embargo, el audio sí sale del dispositivo y es procesado por Hugging Face. Cloudflare y Hugging Face pueden recibir datos técnicos como la dirección IP, la hora y datos de la solicitud. Voz Alpha no usa el contenido para identificarte, publicitarte ni entrenar modelos, y no mantiene una cuenta o historial que vincule el archivo con tu identidad.</p>
+    <p>El Worker retransmite la solicitud y no está diseñado para guardar una copia del audio como almacenamiento de Voz Alpha. No podemos confirmar ni garantizar los plazos de eliminación de archivos temporales y registros técnicos de Cloudflare o Hugging Face; rigen las políticas de esos proveedores. No envíes contenido confidencial o audio que no tengas derecho a procesar. Las funciones locales no requieren este envío.</p>
+
+    <h2>4. Otros servicios en línea</h2>
+    <ul>
+      <li><strong>LRCLIB:</strong> al buscar una letra, recibe el nombre de artista y canción, además de datos técnicos de conexión. No recibe el audio.</li>
+      <li><strong>Firebase Analytics:</strong> su SDK puede recopilar automáticamente datos técnicos, identificadores de instalación e información de uso.</li>
+      <li><strong>Firebase Crashlytics:</strong> su SDK puede recibir información técnica y diagnósticos cuando ocurre un fallo.</li>
+      <li><strong>Google Mobile Ads (AdMob):</strong> el SDK puede tratar identificadores del dispositivo y datos técnicos/de interacción al solicitar anuncios. La configuración actual del código usa unidades de anuncios de prueba.</li>
+      <li><strong>Google Play Billing:</strong> gestiona compras, suscripciones y restauraciones. Voz Alpha no recibe ni guarda los datos de tu tarjeta.</li>
+    </ul>
+    <p>Estos servicios pueden tratar datos conforme a sus propias políticas y en otros países. La App no envía intencionalmente grabaciones a Analytics, Crashlytics ni AdMob. La transmisión de audio a Hugging Face sucede únicamente cuando iniciás una función del Mini Estudio que la requiere.</p>
+    <p>Más información: <a href="https://policies.google.com/privacy">Privacidad de Google</a>, <a href="https://firebase.google.com/support/privacy">Privacidad y seguridad de Firebase</a>, <a href="https://www.cloudflare.com/privacypolicy/">Privacidad de Cloudflare</a> y <a href="https://huggingface.co/privacy">Privacidad de Hugging Face</a>. LRCLIB está disponible en <a href="https://lrclib.net/">lrclib.net</a>.</p>
+
+    <h2>5. Permisos</h2>
+    <p>El micrófono permite grabar y analizar voz; el selector de Android permite elegir audio y guardar resultados; internet permite las funciones en línea descritas arriba; las notificaciones se usan para recordatorios si las habilitás.</p>
+
+    <h2>6. Conservación y eliminación</h2>
+    <p>Los datos locales se pueden borrar desde la App o Android. Algunos archivos temporales y stems se limpian automáticamente después de 48 horas; las grabaciones y mezclas finales pueden permanecer hasta que las borres. Los archivos exportados a Descargas no se eliminan al desinstalar la App.</p>
+    <p>Voz Alpha no tiene cuentas ni un repositorio de archivos de usuario desde el que pueda localizar una solicitud individual. La eliminación de datos técnicos o temporales que pudieran conservar los proveedores debe solicitarse a cada proveedor, conforme a sus políticas.</p>
+
+    <h2>7. Seguridad y derechos</h2>
+    <p>Las funciones en línea usan HTTPS, pero ningún método garantiza seguridad absoluta. Podés gestionar archivos locales desde el dispositivo y los identificadores publicitarios desde los ajustes de Android/Google. Para consultas o solicitudes relacionadas con esta política, escribí a <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a>. Los derechos disponibles dependen de la legislación de tu lugar de residencia.</p>
+
+    <h2>8. Menores y cambios</h2>
+    <p>La App no está dirigida a menores de 13 años y no busca recopilar intencionalmente información personal de ellos. Esta política puede actualizarse junto con nuevas versiones de la App.</p>
+
+    <h2>9. Alojamiento de esta página</h2>
+    <p>Esta página está pensada para publicarse con GitHub Pages. GitHub puede procesar datos técnicos de acceso a la página conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">declaración de privacidad</a>. La página no incluye formularios, cookies propias ni herramientas de analítica de Voz Alpha.</p>
+
+    <h2>10. Contacto</h2>
+    <p>Consultas de privacidad: <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a>.</p>
+  </main>
+
+  <footer>
+    <p>Voz Alpha · Política de Privacidad</p>
+  </footer>
+</body>
+</html>
