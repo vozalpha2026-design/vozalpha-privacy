@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Política de privacidad de la aplicación Voz Alpha.">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://vozalpha2026-design.github.io/vozalpha-privacy/">
   <title>Política de Privacidad - Voz Alpha</title>
   <style>
     :root {
@@ -33,13 +34,26 @@
     }
     h2 { margin-top: 2rem; font-size: 1.25rem; line-height: 1.35; }
     h2:first-of-type { margin-top: 1.5rem; }
+    h3 { margin-top: 1.25rem; font-size: 1.02rem; }
     a { color: #3159a8; overflow-wrap: anywhere; }
+    code { background: #eef2f9; padding: .1rem .3rem; border-radius: .25rem; }
     .summary {
       padding: 1rem 1.1rem;
       border-left: 4px solid #3974e8;
       border-radius: .35rem;
       background: #f0f5ff;
     }
+    .warn {
+      padding: 1rem 1.1rem;
+      border-left: 4px solid #c26a1b;
+      border-radius: .35rem;
+      background: #fff6ec;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+    caption { text-align: left; font-weight: 600; margin-bottom: .4rem; }
+    th, td { border: 1px solid #d8dfeb; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+    th { background: #f2f5fb; }
+    ul { padding-left: 1.25rem; }
     footer { padding: 0 0 2rem; color: #596579; font-size: .9rem; }
     @media (prefers-reduced-motion: no-preference) {
       html { scroll-behavior: smooth; }
@@ -50,58 +64,233 @@
   <header>
     <div>
       <h1>Política de Privacidad</h1>
-      <p>Voz Alpha · Última actualización: 5 de octubre de 2026</p>
+      <p>Voz Alpha · Versión 2.1 · Última actualización: 31 de octubre de 2026</p>
+      <p>Texto canónico: <a href="https://vozalpha2026-design.github.io/vozalpha-privacy/">vozalpha2026-design.github.io/vozalpha-privacy</a> (el mismo texto se muestra dentro de la App)</p>
     </div>
   </header>
 
   <main>
-    <p class="summary"><strong>En pocas palabras:</strong> Voz Alpha no requiere una cuenta ni usa tus grabaciones para identificarte, hacer publicidad o entrenar modelos. Algunas funciones del Mini Estudio envían el audio que elegís a Hugging Face para procesarlo. La App también integra servicios de Google que pueden recopilar datos técnicos, de uso y diagnóstico.</p>
+    <p class="summary"><strong>En pocas palabras:</strong> Voz Alpha no pide cuenta ni nombre, y no usa tus grabaciones para identificarte, hacer perfiles, publicitarte ni entrenar modelos. El entrenamiento vocal, el análisis de oratoria, el loopback y la reducción de ruido se procesan en tu teléfono. Dos funciones del Mini Estudio (separar pistas y generar transcripción/karaoke) envían el audio que vos elegís a un servidor de Hugging Face a través de un servidor intermediario nuestro en Cloudflare. Además, la App incluye SDKs de Google (anuncios y diagnóstico de fallos) que tratan identificadores del dispositivo y datos técnicos con tu consentimiento.</p>
 
-    <h2>1. Responsable y cuenta</h2>
-    <p>Voz Alpha es una aplicación de entrenamiento vocal y Mini Estudio. No requiere crear una cuenta ni entregar nombre, email u otros datos de identidad para usar sus funciones. La App no crea perfiles de usuario ni usa las grabaciones para publicidad, entrenamiento de modelos o identificación de la voz.</p>
+    <h2>1. Quién trata tus datos (responsable) y cómo contactarlo</h2>
+    <p>El responsable del tratamiento de los datos descritos en esta política es <strong>Ader Landeo Sacha</strong>, persona humana domiciliada en la <strong>Ciudad Autónoma de Buenos Aires, República Argentina</strong>, que publica y opera la aplicación Voz Alpha bajo el nombre comercial «Voz Alpha» (<em>«la App»</em>). Contactos: correo <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a> (también para reclamos de privacidad y de derechos de autor).</p>
+    <p>Cuando escribas para ejercicio de derechos, indicá el dispositivo, la versión de la App y qué pedís. No podemos vincular un correo o un nombre con tus datos porque la App no los recoge (ver sección 12).</p>
+    <p>Google, Cloudflare, Hugging Face y LRCLIB tratan ciertos datos como proveedores independientes o encargados, según sus propios términos; se listan en la sección 7.</p>
 
-    <h2>2. Datos y procesamiento local</h2>
-    <p>Las grabaciones, el loopback y el análisis de oratoria (ritmo, tono, pausas y palabras de relleno) se procesan en el dispositivo. La transcripción de oratoria usa el modelo Vosk incluido en la App. Las preferencias, el progreso, la aceptación de documentos y los archivos de trabajo se guardan localmente.</p>
-    <p>La función Lectura entrega el texto al motor de síntesis de voz de Android configurado en el dispositivo. Si ese motor usa servicios en línea, su proveedor puede tratar el texto según sus propias prácticas.</p>
-
-    <h2>3. Audio enviado por el usuario al Mini Estudio</h2>
-    <p>Solo cuando elegís separar pistas o generar transcripción/karaoke, el audio seleccionado se envía por HTTPS al Worker de Cloudflare de Voz Alpha y este lo retransmite a Hugging Face para procesarlo. La separación usa el Space <code>vozalpha-voz-alpha-spleeter</code>, configurado como privado. La transcripción/karaoke usa <code>vozalpha-karaoke-letra</code>, que está configurado como público.</p>
-    <p>“Público” describe la visibilidad del Space como servicio en Hugging Face; no quiere decir que la App publique automáticamente tu archivo o lo muestre a otros usuarios. Sin embargo, el audio sí sale del dispositivo y es procesado por Hugging Face. Cloudflare y Hugging Face pueden recibir datos técnicos como la dirección IP, la hora y datos de la solicitud. Voz Alpha no usa el contenido para identificarte, publicitarte ni entrenar modelos, y no mantiene una cuenta o historial que vincule el archivo con tu identidad.</p>
-    <p>El Worker retransmite la solicitud y no está diseñado para guardar una copia del audio como almacenamiento de Voz Alpha. No podemos confirmar ni garantizar los plazos de eliminación de archivos temporales y registros técnicos de Cloudflare o Hugging Face; rigen las políticas de esos proveedores. No envíes contenido confidencial o audio que no tengas derecho a procesar. Las funciones locales no requieren este envío.</p>
-
-    <h2>4. Otros servicios en línea</h2>
+    <h2>2. Qué NO hace esta App</h2>
     <ul>
-      <li><strong>LRCLIB:</strong> al buscar una letra, recibe el nombre de artista y canción, además de datos técnicos de conexión. No recibe el audio.</li>
-      <li><strong>Firebase Analytics:</strong> su SDK puede recopilar automáticamente datos técnicos, identificadores de instalación e información de uso.</li>
-      <li><strong>Firebase Crashlytics:</strong> su SDK puede recibir información técnica y diagnósticos cuando ocurre un fallo.</li>
-      <li><strong>Google Mobile Ads (AdMob):</strong> el SDK puede tratar identificadores del dispositivo y datos técnicos/de interacción al solicitar anuncios. La configuración actual del código usa unidades de anuncios de prueba.</li>
-      <li><strong>Google Play Billing:</strong> gestiona compras, suscripciones y restauraciones. Voz Alpha no recibe ni guarda los datos de tu tarjeta.</li>
+      <li>No exige cuenta, registro, nombre, correo ni teléfono para usar ninguna función.</li>
+      <li>No construye perfiles de usuario ni historiales asociados a tu identidad.</li>
+      <li>No analiza ni almacena huellas de voz, no hace identificación biométrica y no verifica quién habla.</li>
+      <li>No usa tus grabaciones para publicidad, ni para entrenar modelos propios o de terceros.</li>
+      <li>No solicita ni trata ubicación, contactos, cámara ni lista de aplicaciones instaladas.</li>
+      <li>No recibe ni guarda datos de tarjeta: las compras las procesa Google Play.</li>
     </ul>
-    <p>Estos servicios pueden tratar datos conforme a sus propias políticas y en otros países. La App no envía intencionalmente grabaciones a Analytics, Crashlytics ni AdMob. La transmisión de audio a Hugging Face sucede únicamente cuando iniciás una función del Mini Estudio que la requiere.</p>
-    <p>Más información: <a href="https://policies.google.com/privacy">Privacidad de Google</a>, <a href="https://firebase.google.com/support/privacy">Privacidad y seguridad de Firebase</a>, <a href="https://www.cloudflare.com/privacypolicy/">Privacidad de Cloudflare</a> y <a href="https://huggingface.co/privacy">Privacidad de Hugging Face</a>. LRCLIB está disponible en <a href="https://lrclib.net/">lrclib.net</a>.</p>
 
-    <h2>5. Permisos</h2>
-    <p>El micrófono permite grabar y analizar voz; el selector de Android permite elegir audio y guardar resultados; internet permite las funciones en línea descritas arriba; las notificaciones se usan para recordatorios si las habilitás.</p>
+    <h2>3. Datos que se tratan, finalidad y base legal</h2>
+    <table>
+      <caption>Resumen por categoría</caption>
+      <thead>
+        <tr><th>Dato</th><th>Finalidad</th><th>Base legal</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Audio que grabás con el micrófono o que elegís en el dispositivo (tomas, pistas, mezclas)</td>
+          <td>Entrenamiento vocal, monitoreo, análisis, reducción de ruido, separación y mezcla. Se procesa en el dispositivo, salvo el envío que vos iniciás (sección 6).</td>
+          <td>Consentimiento para el permiso de micrófono y ejecución del servicio que pedís</td>
+        </tr>
+        <tr>
+          <td>El archivo de audio que enviás al Mini Estudio</td>
+          <td>Devolverse convertido (pistas o transcripción). No se conserva en servidores de Voz Alpha.</td>
+          <td>Consentimiento expreso al iniciar la función</td>
+        </tr>
+        <tr>
+          <td>Datos técnicos de la solicitud al servidor intermediario: dirección IP, hora, ruta, tamaño, código de resultado</td>
+          <td>Hacer llegar la petición a Hugging Face y detectar fallos o abuso del servicio.</td>
+          <td>Interés legítimo (operación y seguridad)</td>
+        </tr>
+        <tr>
+          <td>Identificador publicitario del dispositivo, datos técnicos y de interacción con anuncios (Google Mobile Ads)</td>
+          <td>Solicitar, mostrar y frecuenciar anuncios; medir rendimiento publicitario.</td>
+          <td>Consentimiento, donde la ley lo exige; interés legítimo donde no se requiere</td>
+        </tr>
+        <tr>
+          <td>Informes de fallos y datos técnicos de diagnóstico (Firebase Crashlytics)</td>
+          <td>Corregir errores y bloqueos.</td>
+          <td>Consentimiento</td>
+        </tr>
+        <tr>
+          <td>Artista y título que buscás para la letra (LRCLIB)</td>
+          <td>Devolver la letra sincronizada para karaoke.</td>
+          <td>Ejecución del servicio que pedís</td>
+        </tr>
+        <tr>
+          <td>Preferencias, ajustes de audio, progreso, usos diarios, estado Premium y fecha de aceptación legal</td>
+          <td>Que la App funcione, respete tus ajustes y muestre o no anuncios.</td>
+          <td>Se guardan solo en tu dispositivo; no nos llegan</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>El audio y la voz pueden revelar características personales (por ejemplo, estado emocional, acento, salud de la voz). No los usamos con fines de identificación ni sanitarios; el análisis de oratoria es una estimación orientativa y no un diagnóstico. En Argentina, la <strong>Ley 25.326 de Protección de los Datos Personales</strong> exige el consentimiento del titular para recoger y tratar datos (artículo 5) y es más estricta cuando los datos pueden revelar indirectamente aspectos como la salud (artículo 2, segundo párrafo); por eso el envío al Mini Estudio y los componentes que tratan identificadores se aceptan con un consentimiento expreso y separado, que podés retirar cuando quieras (ver sección 12).</p>
 
-    <h2>6. Conservación y eliminación</h2>
-    <p>Los datos locales se pueden borrar desde la App o Android. Algunos archivos temporales y stems se limpian automáticamente después de 48 horas; las grabaciones y mezclas finales pueden permanecer hasta que las borres. Los archivos exportados a Descargas no se eliminan al desinstalar la App.</p>
-    <p>Voz Alpha no tiene cuentas ni un repositorio de archivos de usuario desde el que pueda localizar una solicitud individual. La eliminación de datos técnicos o temporales que pudieran conservar los proveedores debe solicitarse a cada proveedor, conforme a sus políticas.</p>
+    <h2>4. Procesamiento local (sin envío a internet)</h2>
+    <p>Las grabaciones, el loopback/monitoreo, la reducción de ruido (RNNoise), el ajuste de ganancia y reverberación, y el análisis de oratoria (ritmo, tono, pausas, palabras de relleno) ocurren en el dispositivo. La transcripción de oratoria usa el modelo Vosk empaquetado dentro de la App. Nada de ese audio sale por red mientras no inicies una función del Mini Estudio.</p>
+    <p>La función Lectura entrega el texto al motor de síntesis de voz que tengas configurado en Android. Si ese motor es de un proveedor con servicios en línea, el texto puede ser tratado por él conforme a su propia política; Voz Alpha no controla ese envío.</p>
 
-    <h2>7. Seguridad y derechos</h2>
-    <p>Las funciones en línea usan HTTPS, pero ningún método garantiza seguridad absoluta. Podés gestionar archivos locales desde el dispositivo y los identificadores publicitarios desde los ajustes de Android/Google. Para consultas o solicitudes relacionadas con esta política, escribí a <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a>. Los derechos disponibles dependen de la legislación de tu lugar de residencia.</p>
+    <h2>5. Voces de otras personas en tus grabaciones</h2>
+    <p class="warn">Una grabación puede captar la voz de terceros que estén cerca del micrófono o en la pista que uses. Esa voz es dato personal de esa persona, y al grabarla y compartirla <strong>vos pasás a ser responsable de ese tratamiento</strong>. Pedí autorización a quienes estén presente, no grabes conversaciones ajenas ni contenido confidencial, y no publiques ni distribuyas grabaciones con voces de terceros sin su permiso. Algunas jurisdicciones requieren el consentimiento de todas las personas que hablan para grabar una conversación.</p>
 
-    <h2>8. Menores y cambios</h2>
-    <p>La App no está dirigida a menores de 13 años y no busca recopilar intencionalmente información personal de ellos. Esta política puede actualizarse junto con nuevas versiones de la App.</p>
+    <h2>6. El audio que enviás al Mini Estudio</h2>
+    <p>Solo cuando elegís <em>separar pistas</em> o <em>generar transcripción/karaoke</em>, el archivo que seleccionaste se envía por HTTPS al Worker de Cloudflare operado por Voz Alpha (<code>vozalpha-backend.voz-alpha2026.workers.dev</code>) y este lo retransmite a un Space de Hugging Face para procesarlo:</p>
+    <ul>
+      <li>Separación de pistas: Space <code>vozalpha-voz-alpha-spleeter</code>, configurado como <strong>privado</strong> (requiere token para acceder).</li>
+      <li>Transcripción/karaoke: Space <code>vozalpha-karaoke-letra</code>, configurado como <strong>público</strong> (visible como servicio en Hugging Face).</li>
+    </ul>
+    <p>Qué significa esto en la práctica, sin eufemismos:</p>
+    <ul>
+      <li>El audio <strong>sale del dispositivo</strong> y es procesado por Hugging Face, y la solicitud pasa por Cloudflare; ambos pueden registrar datos técnicos (IP, hora, ruta, tamaño).</li>
+      <li>«Público» no significa que la App publique tu archivo ni lo muestre a otros usuarios. Significa que el servicio está abierto en Hugging Face, y los archivos de trabajo de ese tipo de servicio quedan en un almacén temporal que puede ser accesible por su dirección durante el tiempo que el proveedor lo conserve. <strong>No podemos ofrecer una garantía absoluta de confidencialidad ni de accesibilidad restringida sobre esos archivos temporales.</strong></li>
+      <li>El Worker retransmite la solicitud y no está diseñado para guardar una copia del audio como almacenamiento de Voz Alpha. No tenemos un mecanismo propio de borrado sobre los registros o archivos temporales de Cloudflare y Hugging Face: sus plazos los fija cada proveedor según sus políticas.</li>
+      <li>Voz Alpha no usa ese contenido para identificarte, publicitarte, crear perfiles ni entrenar modelos, y no mantiene una cuenta ni un historial que vincule el archivo con tu identidad.</li>
+    </ul>
+    <p><strong>No envíes</strong> por estas funciones audio confidencial, datos de salud, conversaciones privadas, material con derechos de terceros sin autorización, ni contenido que no tengas derecho a procesar. Si necesitás privacidad estricta, usá las funciones locales (reducción de ruido, entrenamiento, análisis de oratoria), que no requieren envío.</p>
 
-    <h2>9. Alojamiento de esta página</h2>
-    <p>Esta página está pensada para publicarse con GitHub Pages. GitHub puede procesar datos técnicos de acceso a la página conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">declaración de privacidad</a>. La página no incluye formularios, cookies propias ni herramientas de analítica de Voz Alpha.</p>
+    <h2>7. Encargados y proveedores (lista de terceros)</h2>
+    <table>
+      <caption>Quién trata qué</caption>
+      <thead>
+        <tr><th>Proveedor</th><th>Qué trata</th><th>Ubicación</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google Mobile Ads (AdMob)</td>
+          <td>Identificador publicitario, datos técnicos e interacción con anuncios, rendimiento publicitario.</td>
+          <td>Estados Unidos</td>
+        </tr>
+        <tr>
+          <td>Firebase Crashlytics (Google)</td>
+          <td>Informes de fallos, versiones, modelo del dispositivo, registro de diagnóstico.</td>
+          <td>Estados Unidos</td>
+        </tr>
+        <tr>
+          <td>Google Play Billing</td>
+          <td>Transacciones, suscripciones y restauraciones. La App solo recibe el estado de la compra.</td>
+          <td>Estados Unidos</td>
+        </tr>
+        <tr>
+          <td>Cloudflare Workers</td>
+          <td>Reenvío de la petición del Mini Estudio, datos técnicos de red y registros del servicio.</td>
+          <td>Estados Unidos y red global de centros de datos</td>
+        </tr>
+        <tr>
+          <td>Hugging Face (Spaces)</td>
+          <td>El audio que enviás para separación o transcripción/karaoke y sus resultados temporales.</td>
+          <td>Estados Unidos / Unión Europea según el Space</td>
+        </tr>
+        <tr>
+          <td>LRCLIB</td>
+          <td>Nombre de artista y canción buscados, más datos técnicos de conexión. No recibe audio.</td>
+          <td>Según su infraestructura</td>
+        </tr>
+        <tr>
+          <td>Motor de síntesis de voz de Android (proveedor del fabricante)</td>
+          <td>El texto que escribas en la función Lectura.</td>
+          <td>Según el proveedor</td>
+        </tr>
+        <tr>
+          <td>GitHub Pages</td>
+          <td>Datos técnicos de acceso a esta página (ver sección 15).</td>
+          <td>Estados Unidos</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Firebase Analytics:</strong> la App no define ni envía eventos de analítica de producto y tiene la recopilación automática de Analytics deshabilitada por configuración. Si en el futuro se activara, esta política se actualizaría antes de publicar esa versión.</p>
+    <p>Más información: <a href="https://policies.google.com/privacy">Privacidad de Google</a>, <a href="https://support.google.com/admob/answer/6128543">cómo usa los datos Google Mobile Ads</a>, <a href="https://firebase.google.com/support/privacy">privacidad y seguridad de Firebase</a>, <a href="https://www.cloudflare.com/privacypolicy/">privacidad de Cloudflare</a>, <a href="https://huggingface.co/privacy">privacidad de Hugging Face</a> y <a href="https://lrclib.net/">LRCLIB</a>.</p>
 
-    <h2>10. Contacto</h2>
-    <p>Consultas de privacidad: <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a>.</p>
+    <h2>8. Permisos, servicios en segundo plano y componentes</h2>
+    <table>
+      <caption>Permiso o componente → uso real</caption>
+      <thead>
+        <tr><th>Permiso / componente</th><th>Para qué se usa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Micrófono</td><td>Grabar y analizar tu voz; se pide de forma explícita y solo se usa con la App en primer plano o con un servicio en primer plano que ves notificado.</td></tr>
+        <tr><td>Servicio en primer plano (micrófono y sincronización de datos)</td><td>Mantener el grabado, el monitoreo/loopback y el procesado del Mini Estudio mientras la App no está visible o usás el modo en pequeña ventana. Android lo señala con una notificación permanente.</td></tr>
+        <tr><td>Impedir la suspensión (WakeLock)</td><td>Que no se corte un procesado largo de audio.</td></tr>
+        <tr><td>Notificaciones</td><td>Recordatorios de práctica, si los activás. Se reprograman tras reiniciar el teléfono o actualizar la App; no requieren envío de datos a Voz Alpha.</td></tr>
+        <tr><td>Audio y almacenamiento (solo versiones antiguas de Android)</td><td>Elegir una pista desde el dispositivo y guardar resultados en la carpeta de Descargas.</td></tr>
+        <tr><td>Internet</td><td>Las funciones en línea descritas en las secciones 6 y 7.</td></tr>
+        <tr><td>Pantalla de Listas abierta desde otras apps</td><td>La App aparece como opción para reproducir o recibir audio <em>y video</em> que otra aplicación te comparta. Ese archivo se usa localmente; solo se enviaría a internet si iniciás una función del Mini Estudio sobre él.</td></tr>
+      </tbody>
+    </table>
+    <p>Rechazar un permiso no obliga a la App a recopilar nada por otra vía: las funciones que dependen de él simplemente no se ofrecen o quedan limitadas.</p>
+
+    <h2>9. Cuánto se conserva cada cosa</h2>
+    <table>
+      <caption>Plazos</caption>
+      <thead>
+        <tr><th>Dato</th><th>Plazo de conservación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tomas, mezclas finales y archivos de trabajo</td><td>Hasta que los borrés desde la App, desde la pantalla de archivos o desde Android.</td></tr>
+        <tr><td>Archivos temporales y stems intermedios</td><td>Limpieza automática a las 48 horas desde el procesado, al abrir la App.</td></tr>
+        <tr><td>Archivos exportados a Descargas</td><td>Permanecen en el dispositivo y <strong>no se borran al desinstalar</strong> la App.</td></tr>
+        <tr><td>Preferencias, progreso, ajustes, usos diarios y registro local de consentimiento</td><td>Mientras la App esté instalada; se eliminan al borrar los datos de la App o desinstalarla.</td></tr>
+        <tr><td>Copias del audio enviado en servidores de Voz Alpha</td><td>No se conserva: el intermediario no tiene almacenamiento de archivos.</td></tr>
+        <tr><td>Registros técnicos y archivos temporales de Cloudflare, Hugging Face y Google</td><td>Los fija cada proveedor según su política; Voz Alpha no recibe ni gestiona esos registros y no puede garantizar plazos de supresión individualizados.</td></tr>
+      </tbody>
+    </table>
+    <p>Borrar el archivo en tu dispositivo no borra el resultado que ya quedó en los sistemas del proveedor en el momento del procesado. Por eso no se ofrece un derecho de supresión individual sobre esos datos: no hay forma técnica de localizarlo sin una cuenta o identificador (ver sección 12).</p>
+
+    <h2>10. Transferencias internacionales</h2>
+    <p>El tratamiento puede ocurrir en países distintos al tuyo, principalmente Estados Unidos (Google, Cloudflare, Hugging Face). La App se ofrece desde la <strong>República Argentina</strong>. Para los usuarios argentinos: bajo la Ley 25.326 (artículo 9) y su reglamento (Decreto 1558/2001), las transferencias internacionales de datos a países que la AAIP no declara con «nivel adecuado de protección» son excepcionales y, entre otros caminos, se fundan en el <strong>consentimiento expreso del titular informado del posible déficit de protección</strong>. Ese consentimiento se pide aparte, antes de encender cualquier tratamiento con transferencia (anuncios, informes de fallos y el audio del Mini Estudio), y se puede retirar en Ajustes.</p>
+    <p>Para usuarios de otras regiones se aplican además los mecanismos de sus leyes: cláusulas tipo de la Comisión Europea y el marco de Privacidad de Datos UE–EE. UU. (EEE), y los equivalentes del Reino Unido, Brasil y California descriptos en cada sección. Si la distribución alcanzara el EEE de forma dirigida y con una escala que lo exija, se designará un representante en la Unión Europea conforme al artículo 27 del RGPD.</p>
+
+    <h2>11. Seguridad</h2>
+    <p>Las comunicaciones con los servicios en línea usan HTTPS/TLS. Conforme al deber de seguridad de la Ley 25.326 (artículo 10) y del Decreto 1558/2001, adoptamos las medidas técnicas y organizativas al alcance de esta App: minimización de datos (no pedimos cuenta ni nombre), procesamiento local siempre que es posible y canal cifrado en los envíos. La App no cifra los archivos locales: dependen de la protección del dispositivo, así que mantené bloqueado el teléfono y cuidá con quién lo compartís. Ningún método de transmisión o almacenamiento es 100 % seguro, y como se explicó en la sección 6 existe un riesgo residual asociado al procesamiento externo de archivos temporales en servicios de terceros. Ante un incidente de seguridad que pueda afectar tus datos, te informaremos por esta página y, si contáramos un medio de contacto, de forma directa; en Argentina también se dará el trámite de notificación a la AAIP previsto en su normativa de seguridad de bases de datos e incidentes.</p>
+
+    <h2>12. Tus derechos</h2>
+    <p>Si vivís en <strong>Argentina</strong>, la Ley 25.326 te da: <strong>acceso</strong> a los datos que se tratan de vos (artículo 2, inciso 3, punto d; según su reglamento, gratis cada 12 meses pidiéndolo por el canal de contacto), <strong>rectificación y actualización</strong> y <strong>supresión</strong> (artículo 15), <strong>oposición</strong> al tratamiento (artículo 16) y <strong>retiro del consentimiento</strong> en cualquier momento (artículo 5). Si algo de eso te fuera denegado o ignorado, podés promover la acción de <strong>hábeas data</strong> (Constitución Nacional, artículo 43) y presentar un <strong>reclamo gratuito ante la AAIP</strong> (Agencia de Acceso a la Información Pública).</p>
+    <p>Para usuarios de otras regiones rigen los derechos homologables de su legislación (RGPD/EEE, LGPD/Brasil, CCPA-CPRA/California u otras): acceso, rectificación, supresión, limitación del tratamiento, portabilidad, oposición y el retiro del consentimiento, además de no ser objeto de decisiones exclusivamente automatizadas.</p>
+    <p>Cómo se ejercen realmente en esta App:</p>
+    <ul>
+      <li><strong>Acceso y portabilidad:</strong> tus datos están en tu dispositivo; exportá o revisá archivos y ajustes desde la App y desde Android.</li>
+      <li><strong>Supresión:</strong> borrá grabaciones y mezclas desde la App, y en Ajustes de Android → Aplicaciones → Voz Alpha → Borrar datos se eliminan preferencias y registro de consentimiento.</li>
+      <li><strong>Retiro del consentimiento:</strong> apagá el switch de datos en Ajustes de la App, revocá el permiso de micrófono o de notificaciones en Android, y desactivá o restablecé el identificador publicitario en los ajustes de Google/Android. Si desinstalás la App, cesa el tratamiento local.</li>
+      <li><strong>Sobre los datos que tratan los proveedores:</strong> la solicitud se dirige a cada proveedor (Google, Cloudflare, Hugging Face, LRCLIB) por sus canales, porque Voz Alpha no recibe copias ni posee identificadores que permitan buscar un envío concreto.</li>
+    </ul>
+    <p>Atendemos las solicitudes que sí podamos localizar en un plazo máximo de 30 días corridos, sin costo. Podés reclamar también ante la autoridad de protección de datos de tu país (en Argentina, la AAIP; en España, la AEPD o la autoridad autonómica competente; en Brasil, la ANPD).</p>
+
+    <h2>13. Anuncios y información para California</h2>
+    <p>La App muestra publicidad de Google AdMob y ofrece una versión Premium sin anuncios, verificada por Google Play Billing. El SDK publicitario puede usar el identificador publicitario del dispositivo y señales de la app o del dispositivo para seleccionar y medir anuncios. Para controlar eso: ajustes de Google → Anuncios → restablecer o eliminar el ID publicitario, y desactivar la personalización.</p>
+    <p>No vendemos datos personales ni los compartimos para anuncios intercontextuales propios. Si en alguna configuración el SDK publicitario tratara datos como «compartido para fines de publicidad conductual» conforme a la ley californiana, esta sección lo declara, y podés oponerte con el control de personalización de Google o usando la versión Premium.</p>
+
+    <h2>14. Menores</h2>
+    <p>La App no está dirigida a menores de 13 años y no buscamos recoger intencionalmente información personal de ellos. No usamos datos de menores para publicidad personalizada. En Argentina, la Ley 27.078 (Argentina Digital) reconoce que los mayores de 13 años pueden consentir por sí mismos el tratamiento de sus datos (artículo 67); por debajo de esa edad, el consentimiento debe darlo o asistirlo el padre, madre o tutor. Si sos adulto y un menor usa la App, hacelo bajo tu supervisión y con el dispositivo configurado con tus criterios de anuncios y permisos. En la ficha de Google Play declaramos la audiencia conforme a la política de familias de Play; cualquier cambio en la audiencia objetivo se reflejará aquí antes de publicarlo.</p>
+
+    <h2>15. Cambios de esta política</h2>
+    <p>Podemos actualizar esta política al publicar nuevas versiones de la App. Los cambios materiales se muestran en la pantalla legal de la App al iniciar, pidiendo una nueva aceptación, y quedan registrados en la tabla de versiones con su fecha. El texto vigente siempre está en la URL canónica de arriba y es idéntico al que se lee dentro de la App en Ajustes → Términos y privacidad.</p>
+    <table>
+      <caption>Historial de versiones</caption>
+      <thead>
+        <tr><th>Versión</th><th>Fecha</th><th>Qué cambió</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2.1</td><td>31 de octubre de 2026</td><td>Se incorpora el marco argentino: la Ley 25.326 y el Decreto 1558/2001 como base del tratamiento y de las transferencias internacionales, el hábeas data y el reclamo ante la AAIP como vías de derechos, el deber de seguridad y la notificación de incidentes, el consentimiento de menores según la Ley 27.078, y el domicilio del responsable en Argentina.</td></tr>
+        <tr><td>2.0</td><td>30 de octubre de 2026</td><td>Se identifica el responsable y su canal de contacto; se describen las bases legales, los plazos de conservación, la lista completa de proveedores y transferencias; se detallan los permisos y el segundo plano; se añade el aviso sobre voces de terceros, los derechos y cómo ejercerlos, la información para California y el control del consentimiento. Se retiran afirmaciones dependientes de la fase de pruebas y se precisa el riesgo residual del procesamiento externo.</td></tr>
+        <tr><td>1.0</td><td>5 de octubre de 2026</td><td>Primera versión publicada.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>16. Alojamiento de esta página</h2>
+    <p>Esta página se publica con GitHub Pages. GitHub puede procesar datos técnicos de acceso (dirección IP, navegador, fecha y hora) conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">declaración de privacidad</a>. La página no incluye formularios, cookies propias, botones de redes sociales ni herramientas de analítica de Voz Alpha.</p>
+
+    <h2>17. Contacto</h2>
+    <p>Consultas de privacidad, solicitudes de derechos y avisos de infracción: <a href="mailto:voz.alpha2026@gmail.com">voz.alpha2026@gmail.com</a>, indicando «Privacidad» en el asunto.</p>
   </main>
 
   <footer>
-    <p>Voz Alpha · Política de Privacidad</p>
+    <p>Voz Alpha · Política de Privacidad v2.1 · 31 de octubre de 2026</p>
   </footer>
 </body>
 </html>
